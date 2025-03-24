@@ -8,18 +8,6 @@ const armySchema = new mongoose.Schema({
     isReadyToDeploy: Boolean,
 })
 
-const squadSchema = new mongoose.Schema({
-    soldierName: String,
-    soldierTitle: String,
-    hairColor: String,
-    weight: String,
-    soldierSkills: [],
-    soldierEquipment: [],
-    isInjured: Boolean,
-})
-
 const Squad = mongoose.model('Squad', armySchema);
-const Soldier = mongoose.model('Soldier', squadSchema);
 
-module.exports = Soldier;
 module.exports = Squad;
