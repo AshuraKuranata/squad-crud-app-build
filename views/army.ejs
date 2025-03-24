@@ -8,5 +8,12 @@
 <body>
     <%- include('./partials/nav.ejs')%>
     <h1>Index list of all squads</h1>
+        <% squads.forEach(squad => { %>
+            <h2> <a href="/army/<%= squad._id%>"><%= squad.squadName %></a> </h2>
+            <h3> Squad #<%= squad.squadNumber%></h3>
+            <p>Date Formed: <%= squad.squadFormedFormatted %><br>Squad Count: <%= squad.squadMemberCount%><br>Ready for Deployment? <%= squad.isReadyToDeploy%> </p>
+            <a href="/army/<%= squad._id%>/edit.ejs">Edit</a>
+        <% }) %>
+
 </body>
 </html>
