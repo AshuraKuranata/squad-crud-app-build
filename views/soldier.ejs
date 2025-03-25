@@ -12,11 +12,15 @@
         <p>Hair Color: <%= soldier.hairColor%><br>Height: <%= soldier.height%>cm<br>Weight: <%= soldier.weight%>kg</p>
         <div class="skills">
             <h4>Skills:</h4>
-            <p><%=soldier.soldierSkills%></p>
+            <% soldier.soldierSkills.forEach(skill => { %>
+                <p><%= skill%></p>
+            <% }) %>
         </div>
         <div class="equip">
             <h4>Equipment:</h4>
-            <p><%= soldier.soldierEquipment%> </p>
+            <% soldier.soldierEquipment.forEach(equip => { %>
+                <p><%= equip%></p>
+            <% }) %>
         </div>
         <div class="status">
             <h4>Status:</h4>
