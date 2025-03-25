@@ -1,0 +1,10 @@
+
+<!-- For Squad Add & Edit: To Prevent Duplication of Squad Number or Name-->
+    <button type="submit">Update Squad</button>
+    <% all.forEach(num) => { %>
+        <% if (document.getElementById('squadNumber').value === num.squadNumber) { %>
+            <div class="modal-error">
+                <p id="errorText">CANNOT LOG AS THIS SQUAD NUMBER IS ALREADY IN USE</p>
+            </div>
+        <% } %>
+    <% } %>

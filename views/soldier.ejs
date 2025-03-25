@@ -7,6 +7,26 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs')%>
-    <h1><%= soldier.soldierName%></h1>
+    <h1><%= soldier.soldierTitle%> <%= soldier.soldierName%></h1>
+    <div class="squadBox">
+        <p>Hair Color: <%= soldier.hairColor%><br>Height: <%= soldier.height%>cm<br>Weight: <%= soldier.weight%>kg</p>
+        <div class="skills">
+            <h4>Skills:</h4>
+            <p><%=soldier.soldierSkills%></p>
+        </div>
+        <div class="equip">
+            <h4>Equipment:</h4>
+            <p><%= soldier.soldierEquipment%> </p>
+        </div>
+        <div class="status">
+            <h4>Status:</h4>
+            <p>Injured? <%= soldier.isInjured %><br> Deployed? <%= soldier.isDeployed %></p>
+        </div>
+    </div>
+    <a href="/army/<%=squad._id%>/<%= soldier._id%>/edit">Edit Soldier</a>
 </body>
 </html>
+
+
+
+        

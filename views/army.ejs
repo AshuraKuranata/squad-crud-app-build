@@ -9,11 +9,27 @@
     <%- include('./partials/nav.ejs')%>
     <h1>Index list of all squads</h1>
         <% squads.forEach(squad => { %>
+            <% let squadCount = 0 %>
             <h2> <a href="/army/<%= squad._id%>"><%= squad.squadName %></a> </h2>
             <h3> Squad #<%= squad.squadNumber%></h3>
-            <p>Date Formed: <%= squad.squadFormedFormatted %><br>Squad Count: <%= squad.squadMemberCount%><br>Ready for Deployment? <%= squad.isReadyToDeploy%> </p>
-            <a href="/army/<%= squad._id%>/edit.ejs">Edit</a>
+            <a href="/army/<%= squad._id%>/edit">Edit</a>
+            <p>Date Formed: <%= squad.squadFormedFormatted %><br>
+            <% for (const soldier of soldiers) { %>
+                <% if (soldier.squadNumber === squad.squadNumber) { %>
+                    <% squadCount += 1 %>
+            <% }} %>
+            Squad Count: <%= squadCount %>
+            <br>Ready for Deployment? <%= squad.isReadyToDeploy%> </p>
+            <% for (const soldier of soldiers) { %>
+                <% if (squad.squadNumber === soldier.squadNumber) { %>
+                    <p>Remove all soldiers before deleting squad.</p>
+                    <%break%>
+                <% } else { %>
+                <form action="/army/<%=squad._id%>/?_method=DELETE" method="POST">
+                    <button type="submit">Delete <%=squad.squadName%></button>
+                </form>
+                <%break%>
+            <%}}%>
         <% }) %>
-
 </body>
 </html>

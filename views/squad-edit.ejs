@@ -7,6 +7,28 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs')%>
-    <h1>Update <%= squad.squadName %></h1>    
+    <h1>Update <%= squad.squadName %></h1>
+    <form action="/army/<%= squad._id%>?_method=PUT" method="POST">
+        <label for="squadName">New Name:</label>
+        <input type="text" name="squadName" value="<%= squad.squadName%>" id="squadName" />
+
+        <label for="squadNumber">Squad Number:</label>
+        <input type="number" name="squadNumber" value="<%= squad.squadNumber%>" id="squadNumber" />
+
+        <label for="squadFormed">Date Formed:</label>
+        <input type="date" value="<%= squad.squadFormedFormatted%>" id="squadFormed">
+
+        <label for="isReadyToDeploy">Ready for Deployment?</label>
+        <input type="checkbox" name="isReadyToDeploy" <% if (squad.isReadyToDeploy) { %>checked<% } %> id="isReadyToDeploy" />
+        
+        <button type="submit">Update Squad</button>
+
+    </form>
+    <script>
+        let today = new Date();
+        document.getElementById('squadFormed').valueAsDate = today;
+        // Error - allowing for future selection of dates
+        // document.getElementById('squadFormed').getAttribute('max').valueAsDate = today;
+    </script>
 </body>
 </html>

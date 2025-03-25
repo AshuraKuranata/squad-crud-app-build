@@ -5,10 +5,12 @@ const squadSchema = new mongoose.Schema({
     soldierName: String,
     soldierTitle: String,
     hairColor: String,
+    height: String,
     weight: String,
     soldierSkills: [],
     soldierEquipment: [],
     isInjured: Boolean,
+    isDeployed: Boolean,
 })
 
 const Soldier = mongoose.model('Soldier', squadSchema);

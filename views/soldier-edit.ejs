@@ -7,6 +7,78 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs')%>
-    <h1>Update <%= soldier.soldierName %></h1>
+    <h1>Update <%= soldier.soldierTitle %> <%= soldier.soldierName %></h1>
+    <form action="/army/<%=squad._id%>/<%=soldier._id%>?_method=PUT" method="POST">
+        <div class="createSoldier">
+            <label for="soldierName">New Name: </label>
+            <input type="text" name="soldierName" value="<%= soldier.soldierName%>" id="soldierName">
+
+            <label for="soldierTitle">New Title: </label>
+            <select id="soldierTitle" name="soldierTitle" value="<%= soldier.soldierTitle %>">
+                <option value="Captain">Captain</option>
+                <option value="First Lieutenant">First Lieutenant</option>
+                <option value="Quartermaster">Quartermaster</option>
+                <option value="Medic">Medic</option>
+                <option value="Soldier">Soldier</option>
+            </select>
+
+            <label for="hairColor">Hair Color: </label>
+            <!-- Considered but return is in hexidecimal in MongoDB, so returned back to hair color selection -->
+            <!-- <input type="color" name="hairColor" id="hairColor" />-->
+            <select id="hairColor" name="hairColor" value="<%= soldier.hairColor%>">
+                <option value="Black">Black</option>
+                <option value="Red">Red</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+                <option value="Purple">Purple</option>
+                <option value="White">White</option>
+                <option value="Indigo">Indigo</option>
+            </select>            
+
+            <label for="height">New Height: </label>
+            <input type="number" name="height" id="height" value="<%= soldier.height%>"/>
+
+            <label for="weight">New Weight: </label>
+            <input type="number" name="weight" id="height" value="<%= soldier.weight%>"/>
+
+            <div id="selectSkill">
+                <h3>Reselect Skills:</h3>
+                <input type="checkbox" class="skills" name="soldierSkills" value="Quick-Witted" id="skillOne" />
+                <label for="soldierSkills">Quick-Witted</label>
+                <input type="checkbox" class="skills" name="soldierSkills" value="Glutton" id="skillTwo" />
+                <label for="soldierSkills">Glutton</label>
+                <input type="checkbox" class="skills" name="soldierSkills" value="Eagle-Eye" id="skillThree" />
+                <label for="soldierSkills">Eagle-Eye</label>
+                <input type="checkbox" class="skills" name="soldierSkills" value="Tough" id="skillFour" />
+                <label for="soldierSkills">Tough</label>
+                <input type="checkbox" class="skills" name="soldierSkills" value="Scavenger" id="skillFive" />
+                <label for="soldierSkills">Scavenger</label>
+
+            </div>
+            <div id="selectEquip">
+                <h3>Reselect Equipment:</h3>
+                <input type="checkbox" class="equipment" name="soldierEquipment" value="Sniper Rifle" id="equipOne" />
+                <label for="soldierSkills">Sniper Rifle</label>
+                <input type="checkbox" class="equipment" name="soldierEquipment" value="Jetpack" id="equipTwo" />
+                <label for="soldierSkills">Jetpack</label>
+                <input type="checkbox" class="equipment" name="soldierEquipment" value="Long Range Scanner" id="equipThree" />
+                <label for="soldierSkills">Long Range Scanner</label>
+                <input type="checkbox" class="equipment" name="soldierEquipment" value="Mechanical Doll" id="equipFour" />
+                <label for="soldierSkills">Mechanical Doll</label>
+                <input type="checkbox" class="equipment" name="soldierEquipment" value="Fishing Rod" id="equipFive" />
+                <label for="soldierSkills">Fishing Rod</label>
+            </div>
+            <div class="status">
+                <h3>Unit Status</h3>
+                <label for="isInjured">Injured?</label>
+                <input type="checkbox" name="isInjured" id="isInjured" <% if (soldier.isInjured) { %>checked<% } %> /><br>
+
+                <label for="isDeployed">Ready to Deploy?</label>
+                <input type="checkbox" name="isDeployed" id="isDeployed" <% if (soldier.isReadyToDeploy) { %>checked<% } %> /> <br>
+            </div>
+            <button type="submit">Update Soldier</button>
+        </div>
+    </form>
 </body>
 </html>
