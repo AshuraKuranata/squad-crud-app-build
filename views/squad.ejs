@@ -17,12 +17,15 @@
         <a id="add" href="/army/<%= squad._id%>/addsoldier">Add soldier to squad</a>
         <div class="squadBox">
             <% soldiers.forEach(soldier => { %>
-            <h3><a href="/army/<%= squad._id%>/<%= soldier._id%>"><%= soldier.soldierTitle%> <%=soldier.soldierName%></a></h3>
-            <p>Hair Color: <%= soldier.hairColor%><br>Height: <%= soldier.height%>cm<br>Weight: <%= soldier.weight%>kg<br>Deployed? <%= soldier.isDeployed%></p>
-            <form action="/army/<%=squad._id%>/<%=soldier._id%>?_method=DELETE" method="POST">
-                <button type="submit">Delete <%= soldier.soldierTitle%> <%=soldier.soldierName%></button>
-            </form>
+            <div class="cardDeets">
+                <h3><a href="/army/<%= squad._id%>/<%= soldier._id%>"><%= soldier.soldierTitle%> <%=soldier.soldierName%></a></h3>
+                <p>Hair Color: <%= soldier.hairColor%><br>Height: <%= soldier.height%>cm<br>Weight: <%= soldier.weight%>kg<br>Deployed? <%= soldier.isDeployed%></p>
+                <form action="/army/<%=squad._id%>/<%=soldier._id%>?_method=DELETE" method="POST">
+                    <button type="submit">Delete <%= soldier.soldierTitle%> <%=soldier.soldierName%></button>
+                </form>
+            </div>
             <% }) %>
+
         </div>
     </div>
 

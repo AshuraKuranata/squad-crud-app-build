@@ -1,26 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 
+:root {
+    --red: rgb(212, 22, 22);
+    --redshadow: rgb(141, 14, 14);
+}
+
 body {
     background-color: aquamarine;
+}
+
+a {
+    color: blue;
+    flex-wrap: nowrap;
+    text-wrap: nowrap;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    color: rgb(22, 22, 192);
 }
 
 h1 {
     font-family: "Libre Baskerville";
     font-size: 4rem;
+    color:rgb(204, 178, 29);
+    text-shadow: 3px 3px 2px rgb(116, 100, 15);    
 }
 
 h2 {
     font-family: "Libre Baskerville";
     font-size: 3rem;
+    text-decoration: none;
+    color: blue;
+    text-shadow: 1px 1px 2px var(--redshadow);
 }
 
 h3 {
     font-family: "Libre Baskerville";
     font-size: 2rem;
-}
-
-h4 {
-    font-family: "Libre Baskerville";
+    text-shadow: -1px 1px rgb(117, 100, 0);
+    color: gold;
+    text-decoration-line: underline;
 }
 
 nav {
@@ -34,12 +55,6 @@ nav {
     width: 100vw;
     min-width: 570px;
 
-}
-
-a {
-    flex-wrap: nowrap;
-    text-wrap: nowrap;
-    text-decoration: none;
 }
 
 .main {
@@ -86,10 +101,22 @@ button:hover {
     padding: 20px;
     border-radius: 50%;
     background-color: cornflowerblue;
-    color: rgb(240, 209, 36)
+    color: rgb(240, 209, 36);
+    text-shadow: 1px 1px 2px rgb(158, 138, 23);
 }
 
 #edit:hover, #add:hover {
     background-color: rgb(72, 117, 201);
     color: rgb(204, 178, 29)
+}
+
+.squadBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.cardDeets {
+    flex-direction: column;
 }

@@ -10,28 +10,35 @@
     <%- include('./partials/nav.ejs')%>
     <div class="main">
         <h1>Earth Defense Force Squads</h1>
+        <div class="squadBox">
             <% squads.forEach(squad => { %>
                 <% let squadCount = 0 %>
-                <h2> <a href="/army/<%= squad._id%>"><%= squad.squadName %></a> </h2>
-                <h3> Squad #<%= squad.squadNumber%></h3>
-                <p>Date Formed: <%= squad.squadFormedFormatted %><br>
-                <% for (const soldier of soldiers) { %>
-                    <% if (soldier.squadNumber === squad.squadNumber) { %>
-                        <% squadCount += 1 %>
-                <% }} %>
-                Squad Count: <%= squadCount %>
-                <br>Ready for Deployment? <%= squad.isReadyToDeploy%> </p>
-                <% for (const soldier of soldiers) { %>
-                    <% if (squad.squadNumber === soldier.squadNumber) { %>
-                        <p>Remove all soldiers before deleting squad.</p>
-                        <%break%>
-                    <% } else { %>
-                    <form action="/army/<%=squad._id%>/?_method=DELETE" method="POST">
-                        <button type="submit">Delete <%=squad.squadName%></button>
-                    </form>
-                    <%break%>
-                <%}}%>
+                <div class="cardDeets">
+                    <h2> <a href="/army/<%= squad._id%>"><%= squad.squadName %></a> </h2>
+                    <h3> Squad #<%= squad.squadNumber%></h3>
+                    <p>Date Formed: <%= squad.squadFormedFormatted %><br>
+                    <% for (const soldier of soldiers) { %>
+                        <% if (soldier.squadNumber === squad.squadNumber) { %>
+                            <% squadCount += 1 %>
+                    <% }} %>
+                    Squad Count: <%= squadCount %>
+                    <br>Ready for Deployment? <%= squad.isReadyToDeploy%> </p>
+                    <% let noDelete = false; %>
+                    <% for (const soldier of soldiers) { %>
+                        <% if (squad.squadNumber === soldier.squadNumber) { %>
+                            <% noDelete = true %>
+                        <% } %>
+                    <% } %>
+                    <% if (noDelete === true) { %>
+                        <p>Remove all soldiers before <br>deleting squad.</p>
+                    <% } else {%>
+                        <form action="/army/<%=squad._id%>/?_method=DELETE" method="POST">
+                            <button type="submit">Delete <%=squad.squadName%></button>
+                        </form>
+                    <%}%>
+                </div>
             <% }) %>
+        </div>
     </div>
 </body>
 </html>
