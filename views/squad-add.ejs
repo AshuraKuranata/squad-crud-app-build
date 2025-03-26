@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Squad</title>
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
     <%- include('./partials/nav.ejs')%>
-    <h1>Create Squad for Army</h1>
-    <form action="/army" method="POST">
-        <label for="squadName">Squad Name:</label>
-        <input type="text" name="squadName" id="squadName" />
+    <div class="main">
+        <h1>Create Squad for Army</h1>
+        <form action="/army" method="POST">
+            <label for="squadName">Squad Name:</label>
+            <input type="text" name="squadName" id="squadName" />
 
-        <label for="squadNumber">Squad Number:</label>
-        <input type="number" name="squadNumber" id="squadNumber" />
+            <label for="squadNumber">Squad Number:</label>
+            <input type="number" name="squadNumber" id="squadNumber" />
 
-        <label for="squadFormed">Date Formed:</label>
-        <input type="date" value="" name="squadFormed" id="squadFormed" />
+            <label for="squadFormed">Date Formed:</label>
+            <input type="date" value="" name="squadFormed" id="squadFormed" />
 
-        <button type="submit">Create Squad</button>
-    </form>
+            <button type="submit">Create Squad</button>
+        </form>
+    </div>
     <script>
     let today = new Date();
     document.getElementById('squadFormed').valueAsDate = today;

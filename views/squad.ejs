@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= squad.squadName%></title>
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
     <%- include('./partials/nav.ejs')%>
-    <h1>Detailed view of <%= squad.squadName %></h1>
-    <h2>Squad #<%= squad.squadNumber%></h2>
-    <p>Date Formed: <%= squad.squadFormedFormatted %><br>Ready for Deployment? <%= squad.isReadyToDeploy%> <br><a href="/army/<%= squad._id%>/edit">Edit Squad</a></p>
-    <h2>Squad Members:</h2>
-    <a href="/army/<%= squad._id%>/addsoldier">Add soldier to squad</a>
-    <div class="squadBox">
-        <% soldiers.forEach(soldier => { %>
-        <h3><a href="/army/<%= squad._id%>/<%= soldier._id%>"><%= soldier.soldierTitle%> <%=soldier.soldierName%></a></h3>
-        <p>Hair Color: <%= soldier.hairColor%><br>Height: <%= soldier.height%>cm<br>Weight: <%= soldier.weight%>kg<br>Deployed? <%= soldier.isDeployed%></p>
+    <div class="main">
+        <h1>Detailed view of <%= squad.squadName %></h1>
+        <h2>Squad #<%= squad.squadNumber%></h2>
+        <a id="edit" href="/army/<%= squad._id%>/edit">Edit Squad</a>
+        <p><br>Date Formed: <%= squad.squadFormedFormatted %><br><br>Ready for Deployment? <%= squad.isReadyToDeploy%></p>
+        <h2>Squad Members:</h2>
+        <a id="add" href="/army/<%= squad._id%>/addsoldier">Add soldier to squad</a>
+        <div class="squadBox">
+            <% soldiers.forEach(soldier => { %>
+            <h3><a href="/army/<%= squad._id%>/<%= soldier._id%>"><%= soldier.soldierTitle%> <%=soldier.soldierName%></a></h3>
+            <p>Hair Color: <%= soldier.hairColor%><br>Height: <%= soldier.height%>cm<br>Weight: <%= soldier.weight%>kg<br>Deployed? <%= soldier.isDeployed%></p>
+            <form action="/army/<%=squad._id%>/<%=soldier._id%>?_method=DELETE" method="POST">
+                <button type="submit">Delete <%= soldier.soldierTitle%> <%=soldier.soldierName%></button>
+            </form>
+            <% }) %>
         </div>
-        <form action="/army/<%=squad._id%>/<%=soldier._id%>?_method=DELETE" method="POST">
-            <button type="submit">Delete <%= soldier.soldierTitle%> <%=soldier.soldierName%></button>
-        </form>
-        <% }) %>
     </div>
+
 </body>
 </html>

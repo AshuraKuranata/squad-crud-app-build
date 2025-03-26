@@ -4,72 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Soldier</title>
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
     <%- include('./partials/nav.ejs')%>
-    <h1>Create Soldier</h1>
-    
-    <form action="/army/<%=ID%>" method="POST">
-        <div class="createSoldier">
-            <label for="soldierName">Name: </label>
-            <input type="text" name="soldierName" id="soldierName">
+    <div class="main">
+        <h1>Create Soldier</h1>
+        <form action="/army/<%=ID%>" method="POST">
+            <div class="createSoldier">
+                <label for="soldierName">Name: </label>
+                <input type="text" name="soldierName" id="soldierName">
 
-            <label for="soldierTitle">Title: </label>
-            <select id="soldierTitle" name="soldierTitle">
-                <option value="Captain">Captain</option>
-                <option value="First Lieutenant">First Lieutenant</option>
-                <option value="Quartermaster">Quartermaster</option>
-                <option value="Medic">Medic</option>
-                <option value="Soldier">Soldier</option>
-            </select>
+                <label for="soldierTitle">Title: </label>
+                <select id="soldierTitle" name="soldierTitle">
+                    <option value="Captain">Captain</option>
+                    <option value="First Lieutenant">First Lieutenant</option>
+                    <option value="Quartermaster">Quartermaster</option>
+                    <option value="Medic">Medic</option>
+                    <option value="Soldier">Soldier</option>
+                </select>
 
-            <label for="hairColor">Hair Color: </label>
-            <!-- Considered but return is in hexidecimal in MongoDB, so returned back to hair color selection -->
-            <!-- <input type="color" name="hairColor" id="hairColor" />-->
-            <select id="hairColor" name="hairColor">
-                <option value="Black">Black</option>
-                <option value="Red">Red</option>
-                <option value="Yellow">Yellow</option>
-                <option value="Green">Green</option>
-                <option value="Blue">Blue</option>
-                <option value="Purple">Purple</option>
-                <option value="White">White</option>
-                <option value="Indigo">Indigo</option>
-            </select>            
+                <label for="hairColor">Hair Color: </label>
+                <!-- Considered but return is in hexidecimal in MongoDB, so returned back to hair color selection -->
+                <!-- <input type="color" name="hairColor" id="hairColor" />-->
+                <select id="hairColor" name="hairColor">
+                    <option value="Black">Black</option>
+                    <option value="Red">Red</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Green">Green</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Purple">Purple</option>
+                    <option value="White">White</option>
+                    <option value="Indigo">Indigo</option>
+                </select>            
 
-            <label for="height">Height: </label>
-            <input type="number" name="height" id="height" />
+                <label for="height">Height: </label>
+                <input type="number" name="height" id="height" />
 
-            <label for="weight">Weight: </label>
-            <input type="number" name="weight" id="height" />
+                <label for="weight">Weight: </label>
+                <input type="number" name="weight" id="height" />
 
-            <div id="selectSkill">
-                <input type="checkbox" class="skills" name="soldierSkills" value="Quick-Witted" id="skillOne" />
-                <label for="soldierSkills">Quick-Witted</label>
-                <input type="checkbox" class="skills" name="soldierSkills" value="Glutton" id="skillTwo" />
-                <label for="soldierSkills">Glutton</label>
-                <input type="checkbox" class="skills" name="soldierSkills" value="Eagle-Eye" id="skillThree" />
-                <label for="soldierSkills">Eagle-Eye</label>
-                <input type="checkbox" class="skills" name="soldierSkills" value="Tough" id="skillFour" />
-                <label for="soldierSkills">Tough</label>
-                <input type="checkbox" class="skills" name="soldierSkills" value="Scavenger" id="skillFive" />
-                <label for="soldierSkills">Scavenger</label>
+                <div id="selectSkill">
+                    <input type="checkbox" class="skills" name="soldierSkills" value="Quick-Witted" id="skillOne" />
+                    <label for="soldierSkills">Quick-Witted</label>
+                    <input type="checkbox" class="skills" name="soldierSkills" value="Glutton" id="skillTwo" />
+                    <label for="soldierSkills">Glutton</label>
+                    <input type="checkbox" class="skills" name="soldierSkills" value="Eagle-Eye" id="skillThree" />
+                    <label for="soldierSkills">Eagle-Eye</label>
+                    <input type="checkbox" class="skills" name="soldierSkills" value="Tough" id="skillFour" />
+                    <label for="soldierSkills">Tough</label>
+                    <input type="checkbox" class="skills" name="soldierSkills" value="Scavenger" id="skillFive" />
+                    <label for="soldierSkills">Scavenger</label>
 
+                </div>
+                <div id="selectEquip">
+                    <input type="checkbox" class="equipment" name="soldierEquipment" value="Sniper Rifle" id="equipOne" />
+                    <label for="soldierSkills">Sniper Rifle</label>
+                    <input type="checkbox" class="equipment" name="soldierEquipment" value="Jetpack" id="equipTwo" />
+                    <label for="soldierSkills">Jetpack</label>
+                    <input type="checkbox" class="equipment" name="soldierEquipment" value="Long Range Scanner" id="equipThree" />
+                    <label for="soldierSkills">Long Range Scanner</label>
+                    <input type="checkbox" class="equipment" name="soldierEquipment" value="Mechanical Doll" id="equipFour" />
+                    <label for="soldierSkills">Mechanical Doll</label>
+                    <input type="checkbox" class="equipment" name="soldierEquipment" value="Fishing Rod" id="equipFive" />
+                    <label for="soldierSkills">Fishing Rod</label>
+                </div>
+                <button type="submit">Create Soldier</button>
             </div>
-            <div id="selectEquip">
-                <input type="checkbox" class="equipment" name="soldierEquipment" value="Sniper Rifle" id="equipOne" />
-                <label for="soldierSkills">Sniper Rifle</label>
-                <input type="checkbox" class="equipment" name="soldierEquipment" value="Jetpack" id="equipTwo" />
-                <label for="soldierSkills">Jetpack</label>
-                <input type="checkbox" class="equipment" name="soldierEquipment" value="Long Range Scanner" id="equipThree" />
-                <label for="soldierSkills">Long Range Scanner</label>
-                <input type="checkbox" class="equipment" name="soldierEquipment" value="Mechanical Doll" id="equipFour" />
-                <label for="soldierSkills">Mechanical Doll</label>
-                <input type="checkbox" class="equipment" name="soldierEquipment" value="Fishing Rod" id="equipFive" />
-                <label for="soldierSkills">Fishing Rod</label>
-            </div>
-            <button type="submit">Create Soldier</button>
-        </div>
-    </form>
+        </form>
+    </div>
 </body>
 </html>

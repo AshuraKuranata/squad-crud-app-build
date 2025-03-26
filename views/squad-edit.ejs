@@ -4,26 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit <%= squad.squadName %></title>
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
     <%- include('./partials/nav.ejs')%>
-    <h1>Update <%= squad.squadName %></h1>
-    <form action="/army/<%= squad._id%>?_method=PUT" method="POST">
-        <label for="squadName">New Name:</label>
-        <input type="text" name="squadName" value="<%= squad.squadName%>" id="squadName" />
+    <div class="main">
+        <h1>Update <%= squad.squadName %></h1>
+        <form class="forms" action="/army/<%= squad._id%>?_method=PUT" method="POST">
+            <label for="squadName">New Name:</label>
+            <input type="text" name="squadName" value="<%= squad.squadName%>" id="squadName" />
 
-        <label for="squadNumber">Squad Number:</label>
-        <input type="number" name="squadNumber" value="<%= squad.squadNumber%>" id="squadNumber" />
+            <label for="squadNumber">Squad Number:</label>
+            <input type="number" name="squadNumber" value="<%= squad.squadNumber%>" id="squadNumber" />
 
-        <label for="squadFormed">Date Formed:</label>
-        <input type="date" value="<%= squad.squadFormedFormatted%>" id="squadFormed">
+            <label for="squadFormed">Date Formed:</label>
+            <input type="date" value="<%= squad.squadFormedFormatted%>" id="squadFormed">
 
-        <label for="isReadyToDeploy">Ready for Deployment?</label>
-        <input type="checkbox" name="isReadyToDeploy" <% if (squad.isReadyToDeploy) { %>checked<% } %> id="isReadyToDeploy" />
-        
-        <button type="submit">Update Squad</button>
+            <label for="isReadyToDeploy">Ready for Deployment?</label>
+            <input type="checkbox" name="isReadyToDeploy" <% if (squad.isReadyToDeploy) { %>checked<% } %> id="isReadyToDeploy" />
+            
+            <button type="submit">Update Squad</button>
 
-    </form>
+        </form>
+    </div>
     <script>
         let today = new Date();
         document.getElementById('squadFormed').valueAsDate = today;

@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
+body {
+    background-color: aquamarine;
+}
+
+h1 {
+    font-family: "Libre Baskerville";
+    font-size: 4rem;
+}
+
+h2 {
+    font-family: "Libre Baskerville";
+    font-size: 3rem;
+}
+
+h3 {
+    font-family: "Libre Baskerville";
+    font-size: 2rem;
+}
+
+h4 {
+    font-family: "Libre Baskerville";
+}
+
+nav {
+    font-size: 2rem;
+    justify-content: center;
+    gap: 30px;
+    display: flex;
+    position: sticky;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100vw;
+    min-width: 570px;
+
+}
+
+a {
+    flex-wrap: nowrap;
+    text-wrap: nowrap;
+    text-decoration: none;
+}
+
+.main {
+    text-align: center;
+}
+
+p {
+    font-size: 24px;
+}
+
+#landingBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+#landingPage {
+    border-radius: 100px;
+}
+
+#landingPageText {
+    width: 50%;
+    align-self: center;
+}
+
+button {
+    font-size: 1.5em;
+    background-color: orange;
+    color: rgb(0, 0, 190);
+    border: 0px;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #ce5d00;
+    color: navy;
+}
+
+#edit, #add {
+    font-size: 1.5em;
+    padding: 20px;
+    border-radius: 50%;
+    background-color: cornflowerblue;
+    color: rgb(240, 209, 36)
+}
+
+#edit:hover, #add:hover {
+    background-color: rgb(72, 117, 201);
+    color: rgb(204, 178, 29)
+}

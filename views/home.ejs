@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earth Special Protection Division</title>
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
     <%- include('./partials/nav.ejs')%>
-    <h1>Earth Special Protection Division</h1>
-    <p>This is the landing page for the Earth Special Protection Division</p>
-    <a href="/army">Click here to see the army</a>
+    <div class="main" id="landingBox">
+        <h1>Earth Special Protection Division</h1>
+        <a href="/army"><img src="/images/JSDF1.png" width="50%" id="landingPage"></a>
+        <p id="landingPageText">Welcome to the Earth Special Protection Division.  We are dedicated to the safety and well-being of Earth from all strange forces.</p>
+    </div>
 </body>
 </html>

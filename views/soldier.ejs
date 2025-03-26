@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= soldier.soldierName%></title>
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
     <%- include('./partials/nav.ejs')%>
-    <h1><%= soldier.soldierTitle%> <%= soldier.soldierName%></h1>
-    <div class="squadBox">
-        <p>Hair Color: <%= soldier.hairColor%><br>Height: <%= soldier.height%>cm<br>Weight: <%= soldier.weight%>kg</p>
-        <div class="skills">
-            <h4>Skills:</h4>
-            <% soldier.soldierSkills.forEach(skill => { %>
-                <p><%= skill%></p>
-            <% }) %>
+    <div class="main">
+        <h1><%= soldier.soldierTitle%> <%= soldier.soldierName%></h1>
+        <div class="squadBox">
+            <p>Hair Color: <%= soldier.hairColor%><br>Height: <%= soldier.height%>cm<br>Weight: <%= soldier.weight%>kg</p>
+            <div class="skills">
+                <h4>Skills:</h4>
+                <% soldier.soldierSkills.forEach(skill => { %>
+                    <p><%= skill%></p>
+                <% }) %>
+            </div>
+            <div class="equip">
+                <h4>Equipment:</h4>
+                <% soldier.soldierEquipment.forEach(equip => { %>
+                    <p><%= equip%></p>
+                <% }) %>
+            </div>
+            <div class="status">
+                <h4>Status:</h4>
+                <p>Injured? <%= soldier.isInjured %><br> Deployed? <%= soldier.isDeployed %></p>
+            </div>
         </div>
-        <div class="equip">
-            <h4>Equipment:</h4>
-            <% soldier.soldierEquipment.forEach(equip => { %>
-                <p><%= equip%></p>
-            <% }) %>
-        </div>
-        <div class="status">
-            <h4>Status:</h4>
-            <p>Injured? <%= soldier.isInjured %><br> Deployed? <%= soldier.isDeployed %></p>
-        </div>
+        <a href="/army/<%=squad._id%>/<%= soldier._id%>/edit" id="edit">Edit Soldier</a>
     </div>
-    <a href="/army/<%=squad._id%>/<%= soldier._id%>/edit">Edit Soldier</a>
 </body>
 </html>
 
